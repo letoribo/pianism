@@ -1,0 +1,113 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {color: #001326; background-color: #EAFFFA; font-family: monospace;}
+
+select {border-radius: 18px; border:1px dotted #0071b5; font: 16px Fantasy; height: 36px; background-color:#C4EDE3; cursor: pointer; text-align: center;}
+
+#container {
+  width: 1250px;
+  position: relative;
+  top: 0; left: 0; bottom: 0; right: 0;
+  text-align: center;
+}
+
+#chordinput {
+  font-family: cursive; font-size: 0.8em;
+  border: 1px solid #ccc;
+  border-left: 5px solid #1693a5;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  border-radius: 18px;
+  letter-spacing: 1px;
+}
+
+#panel {
+  font-size: 1.3em;
+  font-weight: 100;
+  color: #556270;
+  list-style-type: none;
+  margin-bottom: 20px;
+}
+
+#panel li {
+  display: inline;
+  padding-left: 10px;
+  margin-right: 15px;
+}
+
+.highlight {color: orange;}
+.range {border: 0; background-color:#EAFFFA; color: #2C0C0D; text-align: center;font-family: monospace; font-size: inherit;}
+label {font: 0.9em "Lucida Grande", "Lucida Sans Unicode", sans-serif;color :#381f00;}
+big {font: 1.8em "Lucida Grande", "Lucida Sans Unicode", sans-serif;color :#381f00;}
+strong, i, b{font-weight: bold; font-family: 'Courier New'; line-height: 1.7; padding: 0 2px 0 6px;}
+div#piano {
+ position: relative;
+ color: #808080;
+ height: 102px;
+ top:10px;
+}
+div.ivory {
+ position: absolute;
+ left: 0px;
+ top: 0px;
+ border-left: 1px solid;
+ width: 1363px;
+}
+.ivory span {
+ background-color: #fffff0;
+ padding: 0px;
+ margin: 0px;
+ border: 1px solid;
+ border-left: 0px;
+ display: inline-block;
+ width: 28px;
+ height: 100px;
+ vertical-align: top;
+}
+div.ebony {
+ position: absolute;
+ left: 0px;
+ top: 0px;
+ margin-left: 25px;
+ width: 1363px;
+}
+.ebony span {
+ position: relative;
+ z-index: 1;
+ background-color: #111;
+ padding: 0px;
+ margin: 0px;
+ border: 1px solid;
+ display: inline-block;
+ width: 15px;
+ height: 70px;
+ margin-right: 16px;
+ vertical-align: top;
+}
+.ebony span.break {
+ border: 0px;
+ display: inline-block;
+ width: 1px;
+ margin-right: 18px;
+ visibility:hidden;
+}
+.ivory span.on {
+  background-color: #aaa;
+}
+.ebony span.on {
+  background-color: #aaa;
+}
+.ivory span.col { background-color: #5DA5AF;}
+.ebony span.col { background-color: #5DA5AF;}
+.center {margin-left: 12%;}
+b {cursor: pointer;}
+b:hover {color: violet;}
+.pressed {color: #9E7929;}
+pre {width: 98%; word-wrap: break-word;white-space: pre-wrap; /* css-3 */
+white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+white-space: -pre-wrap; /* Opera 4-6 */
+white-space: -o-pre-wrap; /* Opera 7 */}
