@@ -1,28 +1,4 @@
 var myModule = angular.module('myModule', ['pragmatic-angular', 'socket-io']);
-/*myModule.factory('socket', function($rootScope) {
-  var socket = io.connect();
-  return {
-	 on: function(eventName, callback) {
-		socket.on(eventName, function() {
-		  var args = arguments;
-		  $rootScope.$apply(function() {
-			 callback.apply(socket, args);
-		  });
-		});
-	 },
-	 emit: function(eventName, data, callback) {
-		socket.emit(eventName, data, function() {
-		  var args = arguments;
-		  $rootScope.$apply(function() {
-			 if(callback) {
-				callback.apply(socket, args);
-			 }
-		  });
-		});
-	 }
-  };
-});*/
-
 
 function myController($scope, $timeout, socket) {
   // Incoming
@@ -35,7 +11,6 @@ function myController($scope, $timeout, socket) {
   });
   
   socket.on('onNoteOff', function(note) {
-    //var note = data.id;
     $scope.note.splice($scope.note.indexOf(note),1); MIDI.noteOff(0, note);
     $timeout(function() {
       $scope.$apply($scope.note);
@@ -43,23 +18,15 @@ function myController($scope, $timeout, socket) {
   });
 
   // Outgoing
-  //$scope.noteOn = function(channel, note, velocity) {
   $scope.noteOn = function(note, velocity) {
 	 var note_id = {
-		//channel: channel,
 		id: note,
 		velocity: velocity			
 	 };
 	 socket.emit('noteOn', note_id);
   };
 
-  //$scope.noteOff = function(channel, note) {
   $scope.noteOff = function(note) {
-	 /*var note_id = {
-		//channel: channel,
-		id: note		
-	 };
-	 socket.emit('noteOff', note_id);*/
 	 socket.emit('noteOff', note);
   };
   
@@ -79,12 +46,10 @@ function myController($scope, $timeout, socket) {
     $scope.id = id; n  = id;
     root = teoria.note.fromMIDI(id);
     $scope.root = root.name.toUpperCase() + root.accidental.sign;
-    //$scope.noteOn(0, id, $scope.velocity);
     $scope.noteOn(id, $scope.velocity);
   }	
   $scope.up = function(id){ $scope.pressed = false;
     $scope.note.splice($scope.note.indexOf(id),1); MIDI.noteOff(0, id);
-    //$scope.noteOff(0, id);
     $scope.noteOff(id);
   }
   steps = keys;
@@ -131,7 +96,6 @@ function myController($scope, $timeout, socket) {
     var key = steps[$scope.current_scale][theKey];
     if(key){ 
       $scope.note.push(key); MIDI.noteOn(0, key, $scope.velocity);
-      //$scope.noteOn(0, key, $scope.velocity);
       $scope.noteOn(key, $scope.velocity);
     }   
   };
@@ -142,7 +106,6 @@ function myController($scope, $timeout, socket) {
     var key = steps[$scope.current_scale][theKey];
     if(key) {
       $scope.note.splice($scope.note.indexOf(key),1); MIDI.noteOff(0, key);
-      //$scope.noteOff(0, key);
       $scope.noteOff(key);
     }
   };   
@@ -204,7 +167,6 @@ function myController($scope, $timeout, socket) {
   $scope.augmented = ["aug", "aug7", "maj#5", "maj9#5", "maj11#5", "maj13#5", "aug9", "aug7b9", "augb9", "aug7#9", "aug11", "aug11b9", "aug11#9", "aug13", "aug13b9", "aug13#9"];
   $scope.diminished = ["dim", "dim7", "dim9", "dim11", "dim13"];
   $scope.half_diminished = ["m7b5", "m9b5", "m11b5", "m13b5"];
-  //$scope.simple = ["3", "m3", "1"]; 
 
   $scope.blur = function() { $("input").blur(); }
 

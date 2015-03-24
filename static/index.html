@@ -34,7 +34,7 @@
 <center>
 <input id="chordinput" type="text" ng-model="chord" ng-focus="blur();">
 <p>Play along your computer keyboard, use &uarr; &darr; to transpose
-<div class="center">  <!-- id="container"-->
+<div class="center">
 <p id="description">Press the key on a virtual piano and click the <b>highlighted</b> name of the chord</big></p>      
 </div></center>
 <div id=piano class="center">
@@ -62,9 +62,8 @@
 <pre ng-mouseenter="chord_type='augmented'" ng-mouseleave="chord_type=''"><i ng-repeat="c in augmented" ng-mousedown="OnChange(c);"><b ng-class="{'pressed': pressed}">{{ root }}</b>{{ c }}</i></pre>
 <pre ng-mouseenter="chord_type='diminished'" ng-mouseleave="chord_type=''"><i ng-repeat="c in diminished" ng-mousedown="OnChange(c);"><b ng-class="{'pressed': pressed}">{{ root }}</b>{{ c }}</i></pre>
 <pre ng-mouseover="chord_type='half_diminished'" ng-mouseleave="chord_type=''"><i ng-repeat="c in half_diminished" ng-mousedown="OnChange(c);"><b ng-class="{'pressed': pressed}">{{ root }}</b>{{ c }}</i></pre>
-<!--<pre><i ng-repeat="c in simple" ng-mousedown="OnChange(c);"><b ng-class="{'pressed': pressed}">{{ root }}</b>{{ c }}</i></pre>-->
 
-<!--<strong ng-show="pressed">MIDI Notes : </strong>--><ul id="panel"><li ng-style="{'borderLeft': '3px solid ' + colors[$index] }" ng-repeat="n in note track by $index">
+<ul id="panel"><li ng-style="{'borderLeft': '3px solid ' + colors[$index] }" ng-repeat="n in note track by $index">
 <strong>{{n}}</strong></li>
 </ul>
 </center>

@@ -13,7 +13,6 @@ io.sockets.on('connection', function(socket) {
   socket.on('noteOff', function(data) {
 	 socket.broadcast.emit('onNoteOff', data);
   });
-
 });
 
 var port = Number(process.env.PORT || 3000);
