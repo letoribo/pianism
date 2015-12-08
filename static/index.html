@@ -33,10 +33,9 @@
 
 <center>
 <input id="chordinput" type="text" ng-model="chord" ng-focus="blur();">
-<p>Play along your computer keyboard, use &uarr; &darr; to transpose
-<div class="center">
+<p>Play along your computer keyboard, use &uarr; &darr; to transpose</p>
 <p id="description">Press the key on a virtual piano and click the <b>highlighted</b> name of the chord</big></p>      
-</div></center>
+</center>
 <div id=piano class="center">
  <div class=ebony>
   <span  ng-repeat="i in keys.b track by $index" id="{{i}}" ng-class="{'break': i == '|', 'on': isSelected(i), 'col': isCol(i)}" ng-mousedown="down(i)" ng-mouseup="up(i)"></span>
@@ -46,14 +45,16 @@
  </div>
 </div><br>
 <center>
+
+<div id="theory">
 <label for="vel" style="padding-left: 1px;"> Velocity:</label>
 <input type="text" class="range" ng-model="velocity" ng-focus="blur();"/>
- <div title="velocity" ng-jquery-plugin="{ slider : { min: 0, max: 127, value: 81, stop : onStop }, width: W }"></div><br>
+ <div title="velocity" ng-jquery-plugin="{ slider : { min: 0, max: 127, value: 81, stop : onStop }, width: W }"></div><br><br><br>
 <label>Scale: </label>
 <select id=scales ng-change='changeScale();' ng-model="_scale">
  <option ng-init="_scale='natural major'" ng-repeat="i in scales" ng-selected="{{i==_scale}}" value="{{i}}">{{i}}</option>
 </select><br><br>
-</p>
+
 <span class="pressed">{{chord_type}}</span><br ng-show="!chord_type">
 <pre ng-mouseenter="chord_type='major'" ng-mouseleave="chord_type=''"><i ng-repeat="c in major" ng-mousedown="OnChange(c);"><b ng-class="{'pressed': pressed}">{{ root }}</b>{{ c }}</i></pre>
 <pre ng-mouseenter="chord_type='dominant'" ng-mouseleave="chord_type=''"><i ng-repeat="c in dominant" ng-mousedown="OnChange(c);"><b ng-class="{'pressed': pressed}">{{ root }}</b>{{ c }}</i></pre>
@@ -66,6 +67,7 @@
 <ul id="panel"><li ng-style="{'borderLeft': '3px solid ' + colors[$index] }" ng-repeat="n in note track by $index">
 <strong>{{n}}</strong></li>
 </ul>
+</div>
 </center>
 
 </body>

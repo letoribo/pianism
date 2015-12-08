@@ -48,7 +48,7 @@ div#piano {
  position: relative;
  color: #808080;
  height: 102px;
- top:10px;
+ top:80px;
 }
 div.ivory {
  position: absolute;
@@ -111,3 +111,5 @@ pre {width: 98%; word-wrap: break-word;white-space: pre-wrap; /* css-3 */
 white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
 white-space: -pre-wrap; /* Opera 4-6 */
 white-space: -o-pre-wrap; /* Opera 7 */}
+/*center:nth-of-type(2){margin-top: 200px;}*/
+#theory {margin-top: 150px;}
